@@ -1,196 +1,550 @@
 /*
 Theme Name: Automatizze
 Theme URI: https://automatizze.com.br
-Author: Adams Florisbal
+Author: Adams Florisbal (Refactored)
 Author URI: https://automatizze.com.br
-Description: Tema criado site automatizze
-Version: 1.0
+Description: Tema moderno para o site da Automatizze
+Version: 3.0
 */
 
-
-/* Reset de estilos padrões */
+/* ======= Reset & Base Styles ======= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-/* Cores principais */
+/* ======= Variáveis ======= */
 :root {
-  --laranja-claro: #ff7f32;
-  --laranja-escuro: #e64a19;
-  --branco: #ffffff;
-  --cinza-claro: #f5f5f5;
-  --cinza-automatizze: #394b3b;
-  --cinza-escuro: #333333;
+  --primary-color: #ff7f32;
+  --secondary-color: #e64a19;
+  --dark-color: #394b3b;
+  --light-color: #ffffff;
+  --background-color: #f5f5f5;
+  --grey-dark: #333;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 8px;
+  --container-max-width: 1200px;
 }
 
-/* Corpo e fundo */
+/* ======= Typography ======= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+
 body {
-  background-color: var(--cinza-claro);
-  color: var(--cinza-escuro);
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--dark-color);
   line-height: 1.6;
   font-size: 16px;
 }
 
-/* Cabeçalho */
-/* Cabeçalho */
-header {
-  background-color: var(--cinza-automatizze);
-  color: var(--branco);
-  padding: 20px 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
-header .header-container {
+/* ======= Layout ======= */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+/* ======= Header ======= */
+header {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  flex-wrap: wrap; /* Permite que os itens se ajustem melhor */
+  max-width: var(--container-max-width);
+  margin: 0 auto;
 }
 
-header .site-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.logo {  
+.logo {
   max-height: 4rem;
-  margin-right: 1rem;
+  transition: var(--transition);
 }
 
-header .slogan {
-  font-size: 1.2rem;
-  font-style: italic;
-  max-width: 60%; /* Limita a largura do texto para não ocupar muito espaço */
-  line-height: 1.5; /* Melhora a leitura */
-  margin-top: 10px; /* Adiciona um pequeno espaço entre o logo e o slogan */
+.logo:hover {
+  transform: scale(1.05);
 }
 
-header nav ul {
+/* ======= Navigation ======= */
+nav ul {
   display: flex;
   list-style: none;
+  gap: 25px;
 }
 
-header nav ul li {
-  margin-left: 20px;
-}
-
-header nav ul li a {
-  color: var(--branco);
+nav a {
+  color: var(--light-color);
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: var(--transition);
 }
 
-header nav ul li a:hover {
-  color: var(--laranja-escuro);
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  header .header-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  header .site-title {
-    font-size: 2rem;
-  }
-
-  header .slogan {
-    font-size: 1rem;
-    max-width: 80%; /* Aumenta a largura do slogan em telas menores */
-    margin-top: 10px;
-  }
-
-  header nav ul {
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  header nav ul li {
-    margin: 10px 0;
-  }
+nav a:hover {
+  color: var(--primary-color);
 }
 
+nav a:hover::after {
+  width: 100%;
+}
 
-/* Seções */
-section {
-  padding: 40px 20px;
+/* Mobile menu (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--light-color);
+  transition: var(--transition);
+}
+
+/* ======= Hero Section ======= */
+#apresentacao {
+  background: linear-gradient(rgba(57, 75, 59, 0.9), rgba(57, 75, 59, 0.8)), url('assets/bg-header.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--light-color);
+  padding: 120px 0;
   text-align: center;
 }
 
-section h2 {
-  font-size: 2rem;
+#apresentacao h1 {
+  font-size: 2.8rem;
   margin-bottom: 20px;
-  color: var(--laranja-escuro);
+  font-weight: 700;
 }
 
-section p, section ul {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+#apresentacao p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  opacity: 0.9;
 }
 
-/* Links de contato */
-section a {
-  color: var(--laranja-claro);
+/* ======= Section Headings ======= */
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: var(--dark-color);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* ======= Botões CTA ======= */
+.cta-button {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: bold;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 127, 50, 0.3);
 }
 
-section a:hover {
-  color: var(--laranja-escuro);
+.cta-button i {
+  margin-right: 8px;
 }
 
-/* Lista de horários */
-#horarios ul {
+.cta-button.primary {
+  background-color: var(--primary-color);
+}
+
+.cta-button.secondary {
+  background-color: var(--dark-color);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 127, 50, 0.4);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* ======= Sobre Section ======= */
+#sobre {
+  background-color: var(--light-color);
+}
+
+#sobre p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* ======= Serviços ======= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-item {
+  background-color: var(--light-color);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  text-align: left;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--primary-color);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-item:hover::before {
+  transform: scaleY(1);
+}
+
+.service-item h3 {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.service-item p {
+  color: #666;
+  margin-top: auto;
+}
+
+/* ======= Contato ======= */
+#contato {
+  background-color: var(--light-color);
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#contato ul {
   list-style: none;
-  padding: 0;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-#horarios ul li {
+#contato li {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contato li i {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+#contato a {
+  color: var(--dark-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+#contato a:hover {
+  color: var(--primary-color);
+}
+
+/* ======= Suporte ======= */
+#suporte {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+#suporte h2 {
+  color: var(--light-color);
+}
+
+#suporte h2::after {
+  background-color: var(--light-color);
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.contact-info h3, 
+.downloads h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.support-channels {
+  margin-top: 20px;
+}
+
+.support-channels ul {
+  list-style: none;
   margin: 10px 0;
 }
 
-/* Rodapé */
-footer {
-  background-color: var(--cinza-escuro);
-  color: var(--branco);
+.support-channels li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.contact-info a, 
+.support-channels a {
+  color: var(--light-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-info a:hover, 
+.support-channels a:hover {
+  color: var(--primary-color);
+}
+
+.download-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.download-buttons .cta-button {
+  margin: 5px;
+}
+
+/* ======= Localização ======= */
+#localizacao {
+  background-color: var(--light-color);
   text-align: center;
-  padding: 20px 0;
+}
+
+#localizacao p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.map-container {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 400px;
+}
+
+/* ======= Footer ======= */
+footer {
+  background-color: var(--grey-dark);
+  color: var(--light-color);
+  padding: 40px 0 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.slogan {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 footer p {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
-/* Responsividade */
+/* ======= Responsividade ======= */
+@media (max-width: 992px) {
+  #apresentacao h1 {
+    font-size: 2.4rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .service-item {
+    padding: 25px;
+  }
+}
+
 @media (max-width: 768px) {
-  header .header-container {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  header nav ul {
-      flex-direction: column;
-      margin-top: 20px;
-  }
-
-  header nav ul li {
-      margin: 10px 0;
-  }
-
   section {
-      padding: 30px 15px;
+    padding: 60px 0;
   }
-
-  section h2 {
-      font-size: 1.8rem;
+  
+  .menu-toggle {
+    display: flex;
   }
+  
+  .header-container {
+    position: relative;
+  }
+  
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-color);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+  }
+  
+  nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  #apresentacao {
+    padding: 80px 0;
+  }
+  
+  #apresentacao h1 {
+    font-size: 2rem;
+  }
+  
+  #apresentacao p {
+    font-size: 1.1rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .download-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 
-  section p, section ul {
-      font-size: 1rem;
+@media (max-width: 480px) {
+  #apresentacao h1 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+  }
+  
+  .service-item h3 {
+    font-size: 1.3rem;
   }
 }
