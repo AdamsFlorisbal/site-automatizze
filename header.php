@@ -29,6 +29,7 @@
                     <li><a href="#contato">Contato</a></li>
                     <li><a href="#localizacao">Localização</a></li>
                     <li><a href="#suporte">Suporte</a></li>
+                    <li><a href="<?php echo esc_url(get_permalink(get_page_by_path('page-apresentacoes'))); ?>">Apresentação</a></li>
                 </ul>
             </nav>
         </div>

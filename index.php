@@ -113,7 +113,7 @@
             </div>
             <p>Rua Artur Emílio Ozzio, 135 - Sala 102 - COHAB, Cachoeirinha - RS, 94935-750</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.8888888888888!2d-51.090000000000000!3d-29.950000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU3JzAwLjAiUyA1McKwMDUnMjQuMCJX!5e0!3m2!1spt-BR!2sbr!4v1615000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.07502900824!2d-51.10208832448699!3d-29.948520426834772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519715714f51629%3A0x5b48453b7dc3c145!2sR.%20Artur%20Em%C3%ADlio%20Ozzio%2C%20135%20-%20COHAB%2C%20Cachoeirinha%20-%20RS%2C%2094935-750!5e0!3m2!1spt-BR!2sbr!4v1741865480311!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
