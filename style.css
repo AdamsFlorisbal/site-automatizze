@@ -666,3 +666,19 @@ footer p {
 .apresentacoes-grid {
   grid-template-columns: 1fr;
 }
+@media (min-height: 380px) { /* Corrigido "heigth" para "height" */
+  .logo {
+    max-height: 3rem;
+  }
+}
+
+
+/* Aplica scroll-margin-top em todas as seções alvo */
+#apresentacao,
+#sobre,
+#servicos,
+#contato,
+#suporte,
+#localizacao {
+    scroll-margin-top: 100px; /* Ajuste conforme a altura do seu header */
+}

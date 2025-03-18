@@ -11,7 +11,8 @@
     </section>
 
     <!-- Seção Sobre -->
-    <section id="sobre">
+     <div id="sobre">
+    <section>
         <div class="container">
             <div class="section-heading">
                 <h2>Sobre a Automatizze</h2>
@@ -19,6 +20,7 @@
             <p>A Automatizze é especializada em automação comercial, oferecendo soluções eficientes e seguras para a gestão do seu negócio. Com anos de experiência no mercado, desenvolvemos sistemas que otimizam processos e aumentam a produtividade do seu estabelecimento.</p>
         </div>
     </section>
+</div>
 
     <!-- Seção Serviços -->
     <section id="servicos">
