@@ -1,11 +1,6 @@
 <footer>
     <div class="footer-container">
         <p class="slogan">Desenvolvendo e comercializando soluções para gestão em Automação Comercial, gerando resultados com excelência.</p>
-        <div class="social-icons">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
         <p>&copy; <?php echo date('Y'); ?> Automatizze Processamento de Dados Ltda. | Todos os direitos reservados.</p>
     </div>
 </footer>
